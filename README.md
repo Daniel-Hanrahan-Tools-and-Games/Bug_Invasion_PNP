@@ -5,6 +5,12 @@ This is only a BackBone port so some changes may be neccessary.
 
 <a href="https://github.com/Daniel-Hanrahan-Tools-and-Games/Bug_Invasion_PNP_Mod">Example Mod Repository Page</a>
 
+<h3>Both of these links take you to Bug_Invasion</h3>
+
+<a href="https://github.com/Daniel-Hanrahan-Tools-and-Games/Bug_Invasion">Bug_Invasion Repository Page</a>
+
+<a href="https://daniel-hanrahan-tools-and-games.github.io/Bug_Invasion">Bug_Invasion ReadMe Page</a>
+
 Anything not covered by the GNU GPL 3.0: This work is licensed under Attribution-ShareAlike 4.0 International
 
 You need to compile this project, and to compile this project you first need to have the godot engine with C#/.NET support which the download link is underneath this line, second you put the quest_for_chalice folder on your local machine, third you need to open that same folder in the engine, fourth compile the project either using the play button or something else.
