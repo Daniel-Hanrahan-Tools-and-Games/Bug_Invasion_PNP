@@ -1,0 +1,209 @@
+[gd_scene load_steps=19 format=3 uid="uid://c321aghdilfco"]
+
+[ext_resource type="PackedScene" uid="uid://bdygtak84imav" path="res://Player.tscn" id="1_de7qa"]
+[ext_resource type="Texture2D" uid="uid://b04g6kgfnht84" path="res://GreenLand.png" id="2_py08u"]
+[ext_resource type="Script" path="res://WallCollision.cs" id="3_mipi6"]
+[ext_resource type="PackedScene" uid="uid://k7etuy3cbcpk" path="res://GreenEnemy.tscn" id="4_mtty6"]
+[ext_resource type="Script" path="res://RightEdgeCollision.cs" id="4_rr7hq"]
+[ext_resource type="PackedScene" uid="uid://st6xihk35464" path="res://RedEnemy.tscn" id="5_rdak4"]
+[ext_resource type="PackedScene" uid="uid://dblprjsqxovg" path="res://YellowEnemy.tscn" id="6_ccg68"]
+[ext_resource type="PackedScene" uid="uid://chfl0tfkirpsm" path="res://BlueEnemy.tscn" id="8_8qfqi"]
+[ext_resource type="Script" path="res://HitsTakenLabel.cs" id="9_ln3ei"]
+[ext_resource type="PackedScene" uid="uid://i12w1p57u7gh" path="res://BlueBullet.tscn" id="10_gbon6"]
+[ext_resource type="PackedScene" uid="uid://dokfhtmieq4cs" path="res://GreenBullet.tscn" id="11_cubgp"]
+[ext_resource type="PackedScene" uid="uid://2k63mlikgatq" path="res://RedBullet.tscn" id="12_12ic8"]
+[ext_resource type="PackedScene" uid="uid://diqx004m1mrm4" path="res://YellowBullet.tscn" id="13_0f5mk"]
+[ext_resource type="Script" path="res://Launcher.cs" id="14_ns4bb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lvg4"]
+size = Vector2(95, 654)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gduq"]
+size = Vector2(1137, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g4he"]
+size = Vector2(1139, 147)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ktx"]
+size = Vector2(49, 640)
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("LaunchPercentageLabel")]
+script = ExtResource("14_ns4bb")
+LaunchPercentageLabel = NodePath("LaunchPercentageLabel")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_py08u")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Player" parent="." instance=ExtResource("1_de7qa")]
+position = Vector2(46, 335)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-42, 316)
+shape = SubResource("RectangleShape2D_7lvg4")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(27, 534)
+script = ExtResource("3_mipi6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(554.5, 45)
+shape = SubResource("RectangleShape2D_2gduq")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(42, 9)
+script = ExtResource("3_mipi6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(539.5, 64.5)
+shape = SubResource("RectangleShape2D_8g4he")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(1163, 13)
+script = ExtResource("4_rr7hq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(18.5, 310)
+shape = SubResource("RectangleShape2D_s1ktx")
+
+[node name="RedEnemy" parent="." instance=ExtResource("5_rdak4")]
+position = Vector2(870, 224)
+
+[node name="RedEnemy2" parent="." instance=ExtResource("5_rdak4")]
+position = Vector2(919, 224)
+
+[node name="RedEnemy3" parent="." instance=ExtResource("5_rdak4")]
+position = Vector2(970, 226)
+
+[node name="RedEnemy4" parent="." instance=ExtResource("5_rdak4")]
+position = Vector2(1025, 228)
+
+[node name="YellowEnemy" parent="." instance=ExtResource("6_ccg68")]
+position = Vector2(867, 286)
+
+[node name="YellowEnemy2" parent="." instance=ExtResource("6_ccg68")]
+position = Vector2(925, 284)
+
+[node name="YellowEnemy3" parent="." instance=ExtResource("6_ccg68")]
+position = Vector2(976, 282)
+
+[node name="YellowEnemy4" parent="." instance=ExtResource("6_ccg68")]
+position = Vector2(1027, 294)
+
+[node name="RedEnemy5" parent="." instance=ExtResource("5_rdak4")]
+position = Vector2(874, 179)
+
+[node name="RedEnemy6" parent="." instance=ExtResource("5_rdak4")]
+position = Vector2(923, 179)
+
+[node name="RedEnemy7" parent="." instance=ExtResource("5_rdak4")]
+position = Vector2(974, 181)
+
+[node name="RedEnemy8" parent="." instance=ExtResource("5_rdak4")]
+position = Vector2(1029, 183)
+
+[node name="YellowEnemy5" parent="." instance=ExtResource("6_ccg68")]
+position = Vector2(867, 339)
+
+[node name="YellowEnemy6" parent="." instance=ExtResource("6_ccg68")]
+position = Vector2(925, 337)
+
+[node name="YellowEnemy7" parent="." instance=ExtResource("6_ccg68")]
+position = Vector2(976, 335)
+
+[node name="YellowEnemy8" parent="." instance=ExtResource("6_ccg68")]
+position = Vector2(1027, 347)
+
+[node name="GreenEnemy" parent="." instance=ExtResource("4_mtty6")]
+position = Vector2(865, 400)
+
+[node name="GreenEnemy2" parent="." instance=ExtResource("4_mtty6")]
+position = Vector2(929, 398)
+
+[node name="GreenEnemy3" parent="." instance=ExtResource("4_mtty6")]
+position = Vector2(980, 403)
+
+[node name="GreenEnemy4" parent="." instance=ExtResource("4_mtty6")]
+position = Vector2(1040, 401)
+
+[node name="GreenEnemy5" parent="." instance=ExtResource("4_mtty6")]
+position = Vector2(868, 454)
+
+[node name="GreenEnemy6" parent="." instance=ExtResource("4_mtty6")]
+position = Vector2(931, 452)
+
+[node name="GreenEnemy7" parent="." instance=ExtResource("4_mtty6")]
+position = Vector2(982, 462)
+
+[node name="GreenEnemy8" parent="." instance=ExtResource("4_mtty6")]
+position = Vector2(1044, 464)
+
+[node name="BlueEnemy" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1082, 188)
+
+[node name="BlueEnemy2" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1123, 188)
+
+[node name="BlueEnemy3" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1087, 247)
+
+[node name="BlueEnemy4" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1125, 243)
+
+[node name="BlueEnemy5" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1090, 305)
+
+[node name="BlueEnemy6" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1131, 305)
+
+[node name="BlueEnemy7" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1095, 364)
+
+[node name="BlueEnemy8" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1133, 360)
+
+[node name="BlueEnemy9" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1086, 415)
+
+[node name="BlueEnemy10" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1127, 415)
+
+[node name="BlueEnemy11" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1091, 474)
+
+[node name="BlueEnemy12" parent="." instance=ExtResource("8_8qfqi")]
+position = Vector2(1129, 470)
+
+[node name="HitsTakenLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("9_ln3ei")
+
+[node name="BlueBullet" parent="." instance=ExtResource("10_gbon6")]
+position = Vector2(367, 410)
+
+[node name="GreenBullet" parent="." instance=ExtResource("11_cubgp")]
+position = Vector2(361, 361)
+
+[node name="RedBullet" parent="." instance=ExtResource("12_12ic8")]
+position = Vector2(359, 225)
+
+[node name="YellowBullet" parent="." instance=ExtResource("13_0f5mk")]
+position = Vector2(359, 290)
+
+[node name="LaunchPercentageLabel" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 35.0
+offset_right = 43.0
+offset_bottom = 58.0
+
+[connection signal="area_entered" from="Area2D" to="Player" method="Collision"]
+[connection signal="area_entered" from="Area2D2" to="Player" method="Collision"]
+[connection signal="area_entered" from="Area2D3" to="Player" method="Collision"]

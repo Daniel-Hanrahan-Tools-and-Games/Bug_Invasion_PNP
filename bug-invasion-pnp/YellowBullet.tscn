@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://diqx004m1mrm4"]
+
+[ext_resource type="Script" path="res://YellowBullet.cs" id="1_3nupy"]
+[ext_resource type="Texture2D" uid="uid://7g6811yglsyj" path="res://SpriteSheet.png" id="1_rclio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xg2h"]
+atlas = ExtResource("1_rclio")
+region = Rect2(1404, 0, 234, 182)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d56qs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xg2h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ge0jq"]
+size = Vector2(18, 9)
+
+[node name="YellowBullet" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_3nupy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_d56qs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 5.5)
+shape = SubResource("RectangleShape2D_ge0jq")
+
+[connection signal="body_entered" from="." to="." method="YellowBulletCollision"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdygtak84imav"]
+
+[ext_resource type="Script" path="res://Player.cs" id="1_asnvv"]
+[ext_resource type="Texture2D" uid="uid://7g6811yglsyj" path="res://SpriteSheet.png" id="2_l3l3y"]
+[ext_resource type="Script" path="res://Gun.cs" id="3_ckytr"]
+[ext_resource type="PackedScene" uid="uid://2k63mlikgatq" path="res://RedBullet.tscn" id="4_r2od1"]
+[ext_resource type="PackedScene" uid="uid://diqx004m1mrm4" path="res://YellowBullet.tscn" id="5_cq3ow"]
+[ext_resource type="PackedScene" uid="uid://dokfhtmieq4cs" path="res://GreenBullet.tscn" id="6_2o6cd"]
+[ext_resource type="PackedScene" uid="uid://i12w1p57u7gh" path="res://BlueBullet.tscn" id="7_0oto5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmgmc"]
+atlas = ExtResource("2_l3l3y")
+region = Rect2(0, 0, 131, 283)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_doric"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmgmc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gk0h"]
+size = Vector2(42, 99)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_asnvv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_doric")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 7.5)
+shape = SubResource("RectangleShape2D_7gk0h")
+
+[node name="Gun" type="Node2D" parent="."]
+position = Vector2(32, 9)
+script = ExtResource("3_ckytr")
+RedBulletScene = ExtResource("4_r2od1")
+YellowBulletScene = ExtResource("5_cq3ow")
+GreenBulletScene = ExtResource("6_2o6cd")
+BlueBulletScene = ExtResource("7_0oto5")

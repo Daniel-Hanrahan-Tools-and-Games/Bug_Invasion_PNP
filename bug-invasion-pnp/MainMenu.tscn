@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm04q4o0b7tc0"]
+
+[ext_resource type="Script" path="res://MainMenu.cs" id="1_ohoc0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c5vgx"]
+font_size = 100
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ohoc0")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 17.0
+offset_right = 991.0
+offset_bottom = 154.0
+text = "Bug Invasion PNP"
+label_settings = SubResource("LabelSettings_c5vgx")
+horizontal_alignment = 1
+
+[node name="ModButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 426.0
+offset_right = 526.0
+offset_bottom = 488.0
+text = "Mod"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 428.0
+offset_right = 660.0
+offset_bottom = 485.0
+text = "Play"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 504.0
+offset_right = 592.0
+offset_bottom = 563.0
+text = "Exit"
+
+[node name="GNU GPL Disclaimer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 156.0
+offset_right = 1137.0
+offset_bottom = 309.0
+text = "This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation, either version 3 of the license, or (at your option) any later version.
+This program is distributed in hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details. You should have recieved a copy of the GNU General Public License along with this program.
+ If not, see https://www.gnu.org/licenses
+"
+
+[node name="Creative Commons Attribution-Sharealike Disclaimer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 330.0
+offset_right = 1049.0
+offset_bottom = 379.0
+text = "Information just about the stuff in this software not covered by the GNU General Public License version 3:  This work is licensed under 
+Attribution-ShareAlike 4.0 International"
+
+[node name="Copyright Disclaimer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 621.0
+offset_right = 424.0
+offset_bottom = 644.0
+text = "Copyright (C) 2025 Daniel Hanrahan Tools and Games"
+
+[node name="Game Over Disclaimer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 828.0
+offset_top = 578.0
+offset_right = 1137.0
+offset_bottom = 627.0
+text = "If you are here after hitting an enemy 
+or a wall, You have gotten a Game Over."
+
+[connection signal="pressed" from="ModButton" to="." method="ModButton"]
+[connection signal="pressed" from="PlayButton" to="." method="PlayButton"]
+[connection signal="pressed" from="ExitButton" to="." method="Exit"]

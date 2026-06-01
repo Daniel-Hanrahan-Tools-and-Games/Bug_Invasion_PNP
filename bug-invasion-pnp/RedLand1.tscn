@@ -1,0 +1,149 @@
+[gd_scene load_steps=21 format=3 uid="uid://b8p4ntupmd473"]
+
+[ext_resource type="Script" path="res://Launcher.cs" id="1_jxjja"]
+[ext_resource type="Texture2D" uid="uid://cfcv3ip6h7c0q" path="res://RedLand.png" id="1_x4jg7"]
+[ext_resource type="PackedScene" uid="uid://bdygtak84imav" path="res://Player.tscn" id="2_seboo"]
+[ext_resource type="Script" path="res://WallCollision.cs" id="3_oy4dm"]
+[ext_resource type="Script" path="res://RightEdgeCollision.cs" id="4_rslt3"]
+[ext_resource type="PackedScene" uid="uid://st6xihk35464" path="res://RedEnemy.tscn" id="5_4ou7b"]
+[ext_resource type="PackedScene" uid="uid://dblprjsqxovg" path="res://YellowEnemy.tscn" id="6_l8di7"]
+[ext_resource type="PackedScene" uid="uid://k7etuy3cbcpk" path="res://GreenEnemy.tscn" id="7_4b4ng"]
+[ext_resource type="PackedScene" uid="uid://chfl0tfkirpsm" path="res://BlueEnemy.tscn" id="8_8essk"]
+[ext_resource type="Script" path="res://HitsTakenLabel.cs" id="9_q0eks"]
+[ext_resource type="PackedScene" uid="uid://2k63mlikgatq" path="res://RedBullet.tscn" id="10_ljmjf"]
+[ext_resource type="PackedScene" uid="uid://diqx004m1mrm4" path="res://YellowBullet.tscn" id="11_fherm"]
+[ext_resource type="PackedScene" uid="uid://dokfhtmieq4cs" path="res://GreenBullet.tscn" id="12_6whe6"]
+[ext_resource type="PackedScene" uid="uid://i12w1p57u7gh" path="res://BlueBullet.tscn" id="13_l2qni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lvg4"]
+size = Vector2(95, 654)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ktx"]
+size = Vector2(49, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbms0"]
+size = Vector2(376, 416)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh3dk"]
+size = Vector2(624, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgtay"]
+size = Vector2(716, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3287"]
+size = Vector2(472, 428)
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("LaunchPercentageLabel")]
+script = ExtResource("1_jxjja")
+LaunchPercentageLabel = NodePath("LaunchPercentageLabel")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_x4jg7")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Player" parent="." instance=ExtResource("2_seboo")]
+position = Vector2(40, 522)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-42, 316)
+shape = SubResource("RectangleShape2D_7lvg4")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(1163, 13)
+script = ExtResource("4_rslt3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(18.5, 310)
+shape = SubResource("RectangleShape2D_s1ktx")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(184, 216)
+script = ExtResource("3_oy4dm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(22, 10)
+shape = SubResource("RectangleShape2D_fbms0")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(48, 612)
+script = ExtResource("3_oy4dm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(290, 4)
+shape = SubResource("RectangleShape2D_hh3dk")
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(416, 24)
+script = ExtResource("3_oy4dm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(360, 22)
+shape = SubResource("RectangleShape2D_sgtay")
+
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2(672, 224)
+script = ExtResource("3_oy4dm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2(226, 200)
+shape = SubResource("RectangleShape2D_s3287")
+
+[node name="RedEnemy" parent="." instance=ExtResource("5_4ou7b")]
+position = Vector2(174, 478)
+
+[node name="RedEnemy2" parent="." instance=ExtResource("5_4ou7b")]
+position = Vector2(182, 554)
+
+[node name="YellowEnemy" parent="." instance=ExtResource("6_l8di7")]
+position = Vector2(338, 478)
+
+[node name="YellowEnemy2" parent="." instance=ExtResource("6_l8di7")]
+position = Vector2(334, 558)
+
+[node name="GreenEnemy" parent="." instance=ExtResource("7_4b4ng")]
+position = Vector2(714, 110)
+
+[node name="GreenEnemy2" parent="." instance=ExtResource("7_4b4ng")]
+position = Vector2(722, 170)
+
+[node name="BlueEnemy" parent="." instance=ExtResource("8_8essk")]
+position = Vector2(950, 114)
+
+[node name="BlueEnemy2" parent="." instance=ExtResource("8_8essk")]
+position = Vector2(954, 182)
+
+[node name="HitsTakenLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("9_q0eks")
+
+[node name="RedBullet" parent="." instance=ExtResource("10_ljmjf")]
+position = Vector2(155, 488)
+
+[node name="YellowBullet" parent="." instance=ExtResource("11_fherm")]
+position = Vector2(296, 539)
+
+[node name="GreenBullet" parent="." instance=ExtResource("12_6whe6")]
+position = Vector2(432, 477)
+
+[node name="BlueBullet" parent="." instance=ExtResource("13_l2qni")]
+position = Vector2(573, 516)
+
+[node name="LaunchPercentageLabel" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 35.0
+offset_right = 43.0
+offset_bottom = 58.0
+
+[connection signal="area_entered" from="Area2D3" to="Player" method="Collision"]
+[connection signal="area_entered" from="Area2D" to="Player" method="Collision"]
+[connection signal="area_entered" from="Area2D2" to="Player" method="Collision"]
+[connection signal="area_entered" from="Area2D4" to="Player" method="Collision"]
+[connection signal="area_entered" from="Area2D5" to="Player" method="Collision"]

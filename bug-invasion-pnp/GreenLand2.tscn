@@ -1,0 +1,294 @@
+[gd_scene load_steps=32 format=3 uid="uid://tjgg0b2kyvl1"]
+
+[ext_resource type="Script" path="res://Launcher.cs" id="1_1bur3"]
+[ext_resource type="Texture2D" uid="uid://b04g6kgfnht84" path="res://GreenLand.png" id="1_vt2mv"]
+[ext_resource type="PackedScene" uid="uid://bdygtak84imav" path="res://Player.tscn" id="2_ygkj3"]
+[ext_resource type="Script" path="res://WallCollision.cs" id="3_2ho3a"]
+[ext_resource type="Script" path="res://RightEdgeCollision.cs" id="4_mlkw1"]
+[ext_resource type="Script" path="res://EnemyMovement.cs" id="5_mrrwm"]
+[ext_resource type="PackedScene" uid="uid://st6xihk35464" path="res://RedEnemy.tscn" id="6_ay1g6"]
+[ext_resource type="PackedScene" uid="uid://dblprjsqxovg" path="res://YellowEnemy.tscn" id="7_r5fss"]
+[ext_resource type="PackedScene" uid="uid://k7etuy3cbcpk" path="res://GreenEnemy.tscn" id="8_56jms"]
+[ext_resource type="PackedScene" uid="uid://chfl0tfkirpsm" path="res://BlueEnemy.tscn" id="9_3di4e"]
+[ext_resource type="Script" path="res://HitsTakenLabel.cs" id="10_ufgif"]
+[ext_resource type="PackedScene" uid="uid://i12w1p57u7gh" path="res://BlueBullet.tscn" id="11_85wgq"]
+[ext_resource type="PackedScene" uid="uid://dokfhtmieq4cs" path="res://GreenBullet.tscn" id="12_mdupy"]
+[ext_resource type="PackedScene" uid="uid://diqx004m1mrm4" path="res://YellowBullet.tscn" id="13_1qs1e"]
+[ext_resource type="PackedScene" uid="uid://2k63mlikgatq" path="res://RedBullet.tscn" id="14_5xst2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lvg4"]
+size = Vector2(95, 654)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gduq"]
+size = Vector2(1137, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g4he"]
+size = Vector2(1139, 147)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ktx"]
+size = Vector2(49, 640)
+
+[sub_resource type="Curve2D" id="Curve2D_svqeb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 953, 173, 0, 0, 0, 0, 373, 176)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1drvi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 953, 221, 0, 0, 0, 0, 345, 210)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_rbiig"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 953, 275, 0, 0, 0, 0, 249, 272)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ouxfq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 947, 320, 0, 0, 0, 0, 348, 317)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_d23u4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 942, 374, 0, 0, 0, 0, 317, 365)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_j12fi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 928, 436, 0, 0, 0, 0, 399, 431)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_vxmn6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1007, 165, 0, 0, 0, 0, 509, 167)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_uiyuy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 995, 213, 0, 0, 0, 0, 526, 216)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ff7qx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 993, 266, 0, 0, 0, 0, 438, 266)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_5bfh8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 998, 317, 0, 0, 0, 0, 484, 303)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_eibdo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 987, 374, 0, 0, 0, 0, 382, 380)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_2iv3f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 979, 431, 0, 0, 0, 0, 486, 408)
+}
+point_count = 2
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("LaunchPercentageLabel")]
+script = ExtResource("1_1bur3")
+LaunchPercentageLabel = NodePath("LaunchPercentageLabel")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_vt2mv")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Player" parent="." instance=ExtResource("2_ygkj3")]
+position = Vector2(46, 335)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-42, 316)
+shape = SubResource("RectangleShape2D_7lvg4")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(27, 534)
+script = ExtResource("3_2ho3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(554.5, 45)
+shape = SubResource("RectangleShape2D_2gduq")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(42, 9)
+script = ExtResource("3_2ho3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(539.5, 64.5)
+shape = SubResource("RectangleShape2D_8g4he")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(1163, 13)
+script = ExtResource("4_mlkw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(18.5, 310)
+shape = SubResource("RectangleShape2D_s1ktx")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_svqeb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(953, 173)
+rotation = 3.13642
+script = ExtResource("5_mrrwm")
+
+[node name="RedEnemy" parent="Path2D/PathFollow2D" instance=ExtResource("6_ay1g6")]
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_1drvi")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(953, 221)
+rotation = -3.1235
+script = ExtResource("5_mrrwm")
+
+[node name="YellowEnemy" parent="Path2D2/PathFollow2D" instance=ExtResource("7_r5fss")]
+
+[node name="Path2D3" type="Path2D" parent="."]
+curve = SubResource("Curve2D_rbiig")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(953, 275)
+rotation = -3.13733
+script = ExtResource("5_mrrwm")
+
+[node name="GreenEnemy" parent="Path2D3/PathFollow2D" instance=ExtResource("8_56jms")]
+
+[node name="Path2D4" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ouxfq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(947, 320)
+rotation = -3.13658
+script = ExtResource("5_mrrwm")
+
+[node name="BlueEnemy" parent="Path2D4/PathFollow2D" instance=ExtResource("9_3di4e")]
+
+[node name="Path2D5" type="Path2D" parent="."]
+curve = SubResource("Curve2D_d23u4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
+position = Vector2(942, 374)
+rotation = -3.12719
+script = ExtResource("5_mrrwm")
+
+[node name="RedEnemy" parent="Path2D5/PathFollow2D" instance=ExtResource("6_ay1g6")]
+
+[node name="Path2D6" type="Path2D" parent="."]
+curve = SubResource("Curve2D_j12fi")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D6"]
+position = Vector2(928, 436)
+rotation = -3.13214
+script = ExtResource("5_mrrwm")
+
+[node name="YellowEnemy" parent="Path2D6/PathFollow2D" instance=ExtResource("7_r5fss")]
+
+[node name="Path2D7" type="Path2D" parent="."]
+curve = SubResource("Curve2D_vxmn6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D7"]
+position = Vector2(1007, 165)
+rotation = 3.13758
+script = ExtResource("5_mrrwm")
+
+[node name="RedEnemy" parent="Path2D7/PathFollow2D" instance=ExtResource("6_ay1g6")]
+
+[node name="Path2D8" type="Path2D" parent="."]
+curve = SubResource("Curve2D_uiyuy")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D8"]
+position = Vector2(995, 213)
+rotation = 3.1352
+script = ExtResource("5_mrrwm")
+
+[node name="YellowEnemy" parent="Path2D8/PathFollow2D" instance=ExtResource("7_r5fss")]
+
+[node name="Path2D9" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ff7qx")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D9"]
+position = Vector2(993, 266)
+rotation = 3.14159
+script = ExtResource("5_mrrwm")
+
+[node name="GreenEnemy" parent="Path2D9/PathFollow2D" instance=ExtResource("8_56jms")]
+
+[node name="Path2D10" type="Path2D" parent="."]
+curve = SubResource("Curve2D_5bfh8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D10"]
+position = Vector2(998, 317)
+rotation = -3.11436
+script = ExtResource("5_mrrwm")
+
+[node name="BlueEnemy" parent="Path2D10/PathFollow2D" instance=ExtResource("9_3di4e")]
+
+[node name="Path2D11" type="Path2D" parent="."]
+curve = SubResource("Curve2D_eibdo")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D11"]
+position = Vector2(987, 374)
+rotation = 3.13168
+script = ExtResource("5_mrrwm")
+
+[node name="GreenEnemy" parent="Path2D11/PathFollow2D" instance=ExtResource("8_56jms")]
+
+[node name="Path2D12" type="Path2D" parent="."]
+curve = SubResource("Curve2D_2iv3f")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D12"]
+position = Vector2(979, 431)
+rotation = -3.09497
+script = ExtResource("5_mrrwm")
+
+[node name="BlueEnemy" parent="Path2D12/PathFollow2D" instance=ExtResource("9_3di4e")]
+
+[node name="HitsTakenLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("10_ufgif")
+
+[node name="BlueBullet" parent="." instance=ExtResource("11_85wgq")]
+position = Vector2(238, 430)
+
+[node name="GreenBullet" parent="." instance=ExtResource("12_mdupy")]
+position = Vector2(242, 342)
+
+[node name="YellowBullet" parent="." instance=ExtResource("13_1qs1e")]
+position = Vector2(246, 250)
+
+[node name="RedBullet" parent="." instance=ExtResource("14_5xst2")]
+position = Vector2(242, 170)
+
+[node name="LaunchPercentageLabel" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 35.0
+offset_right = 43.0
+offset_bottom = 58.0
+
+[connection signal="area_entered" from="Area2D" to="Player" method="Collision"]
+[connection signal="area_entered" from="Area2D2" to="Player" method="Collision"]
+[connection signal="area_entered" from="Area2D3" to="Player" method="Collision"]

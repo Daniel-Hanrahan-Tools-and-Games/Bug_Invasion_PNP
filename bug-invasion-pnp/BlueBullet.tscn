@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://i12w1p57u7gh"]
+
+[ext_resource type="Texture2D" uid="uid://7g6811yglsyj" path="res://SpriteSheet.png" id="1_d4yv2"]
+[ext_resource type="Script" path="res://BlueBullet.cs" id="1_kdrad"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv828"]
+atlas = ExtResource("1_d4yv2")
+region = Rect2(1872, 0, 234, 182)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1dde6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv828")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhxn0"]
+size = Vector2(14, 9)
+
+[node name="BlueBullet" type="Area2D"]
+collision_layer = 256
+script = ExtResource("1_kdrad")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_1dde6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 5.5)
+shape = SubResource("RectangleShape2D_dhxn0")
+
+[connection signal="body_entered" from="." to="." method="BlueBulletCollision"]

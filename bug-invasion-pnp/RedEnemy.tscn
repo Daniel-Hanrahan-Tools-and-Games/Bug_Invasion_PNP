@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://st6xihk35464"]
+
+[ext_resource type="Script" path="res://RedEnemyCollision.cs" id="1_ei2lr"]
+[ext_resource type="Texture2D" uid="uid://7g6811yglsyj" path="res://SpriteSheet.png" id="1_gm165"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dqs5"]
+atlas = ExtResource("1_gm165")
+region = Rect2(182, 0, 182, 283)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8qcc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dqs5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsume"]
+size = Vector2(74, 81)
+
+[node name="RedEnemy" type="Area2D"]
+scale = Vector2(0.4, 0.4)
+collision_layer = 2
+collision_mask = 33
+script = ExtResource("1_ei2lr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_o8qcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 8.5)
+shape = SubResource("RectangleShape2D_gsume")
+
+[connection signal="area_entered" from="." to="." method="RedCollision"]
